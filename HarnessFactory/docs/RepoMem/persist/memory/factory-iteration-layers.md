@@ -18,7 +18,7 @@ last_reviewed_at: 2026-05-14
   的层级定义、生命周期覆盖与对比分析。
 - 维护方式：当前由人 + agent 手工产出研究文档；未来可考虑由周期性 agent 维护。
 - 当前归属此层的文件：
-  - [`docs/analysis-lifecycle-workflow-comparison.zh-CN.md`](../../../analysis-lifecycle-workflow-comparison.zh-CN.md)
+  - [`methods/_comparison/lifecycle-workflow-comparison.zh-CN.md`](../../../../methods/_comparison/lifecycle-workflow-comparison.zh-CN.md)
 
 ### 推断层 (Inference Layer)
 

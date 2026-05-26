@@ -24,8 +24,9 @@ be copied directly without renaming.
 
 ```
 HarnessFactory/
-├── README.md                     # this file
-├── harness-factory/              # factory source (skill + templates + references)
+├── README.md
+├── methods/                     # candidate layer (per-method profiles + cross-method analysis)
+├── harness-factory/             # assembly layer (factory source: skill + templates + references)
 │   ├── SKILL.md
 │   ├── agents/
 │   ├── assets/templates/
@@ -34,8 +35,7 @@ HarnessFactory/
 │   ├── HarnessStack/             # this repo's own activated stack (dogfood)
 │   ├── RepoMem/                  # long-term repository memory for the factory itself
 │   ├── CN/                       # Chinese mirror of the factory surface
-│   ├── superpowers/specs+plans/  # v0.3 design + implementation plan
-│   └── analysis-lifecycle-workflow-comparison.zh-CN.md   # Research-Layer artifact
+│   └── superpowers/specs+plans/  # v0.3 design + implementation plan
 └── output/                       # produced HarnessStack bundles, one per run
 ```
 
@@ -80,7 +80,7 @@ human-facing manual lives in `_toUser/`.
 
 - **Research Layer (调研层)** — maintains per-method definitions and
   cross-method comparisons. Current artifact:
-  `docs/analysis-lifecycle-workflow-comparison.zh-CN.md`.
+  `methods/_comparison/lifecycle-workflow-comparison.zh-CN.md`.
 - **Inference Layer (推断层)** — generates a HarnessStack from user
   guidance. Implemented today by `harness-factory/SKILL.md`.
 
