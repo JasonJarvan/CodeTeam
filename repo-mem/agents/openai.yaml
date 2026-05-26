@@ -1,0 +1,7 @@
+interface:
+  display_name: "RepoMem"
+  short_description: "Repository memory governance layer"
+  default_prompt: "Use $repo-mem to initialize repository memory, manage task temp docs, merge long-term knowledge, or maintain repository memory with HITL review."
+
+policy:
+  allow_implicit_invocation: true
