@@ -1,0 +1,4 @@
+interface:
+  display_name: "Harness Stack"
+  short_description: "Workflow contracts for coding agents"
+  default_prompt: "Use $harness-factory to choose and generate the right workflow contracts for this repository."
