@@ -39,6 +39,20 @@ Final activation in a target repository = scenario × recipe.
 If a layer is intentionally inactive, write `none` and add an `Emergent
 Ownership` note under Primary if its responsibility is carried by other layers.
 
+## Method References
+
+List the candidate-layer profile for each Method named under `Layer Assignments`.
+One bullet per Method. The assembly layer reads these profiles to check
+Lifecycle Coverage, Capabilities, and Conflicts before composing inter-layer
+rules in this recipe. If a Method is named under Layer Assignments but has no
+profile in `methods/`, that is a defect — pause and author the profile first.
+
+- <method-name> → `methods/<method-name>/profile.md`
+
+When a Method has an `embedding-playbook.md`, also link it:
+
+- <method-name> → `methods/<method-name>/profile.md` (playbook: `methods/<method-name>/embedding-playbook.md`)
+
 ## End-to-End Pipeline
 
 Numbered ordered steps. State which layer drives each step and which artifacts
