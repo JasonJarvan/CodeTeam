@@ -61,23 +61,23 @@ Use these defaults before task-specific adjustments.
 
 ### solo
 
-- Prefer `Superpowers`
-- Add `RepoMem` when the repository is long-lived
-- Add `OpenSpec` when changes need stable spec boundaries
-- Enable `ECC` lightly when memory, hooks, or verification benefit the repository
+- Prefer `Superpowers` → `methods/superpowers/profile.md`
+- Add `RepoMem` when the repository is long-lived → `methods/repomem/profile.md`
+- Add `OpenSpec` when changes need stable spec boundaries → `methods/openspec/profile.md`
+- Enable `ECC` lightly when memory, hooks, or verification benefit the repository → `methods/ecc/profile.md`
 
 ### small-team
 
-- Prefer `Superpowers + RepoMem`
-- Add `OpenSpec` as the normal spec layer once collaboration cost rises
-- Add `ECC` at medium strength when shared context and guardrails matter
-- Add a stronger primary workflow only when simple execution discipline is no longer enough
+- Prefer `Superpowers + RepoMem` → `methods/superpowers/profile.md`, `methods/repomem/profile.md`
+- Add `OpenSpec` as the normal spec layer once collaboration cost rises → `methods/openspec/profile.md`
+- Add `ECC` at medium strength when shared context and guardrails matter → `methods/ecc/profile.md`
+- Add a stronger primary workflow only when simple execution discipline is no longer enough → `methods/bmad/profile.md`, `methods/gstack/profile.md`, `methods/gsd/profile.md`
 
 ### large-team
 
-- Prefer `OpenSpec + RepoMem + ECC` as the default baseline
-- Keep `Superpowers` as the execution discipline layer
-- Upgrade the primary workflow to a heavier planning system when coordination cost is high
+- Prefer `OpenSpec + RepoMem + ECC` as the default baseline → `methods/openspec/profile.md`, `methods/repomem/profile.md`, `methods/ecc/profile.md`
+- Keep `Superpowers` as the execution discipline layer → `methods/superpowers/profile.md`
+- Upgrade the primary workflow to a heavier planning system when coordination cost is high → `methods/bmad/profile.md`, `methods/gstack/profile.md`, `methods/gsd/profile.md`
 
 ## Requirement Clarity Defaults
 
