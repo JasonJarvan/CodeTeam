@@ -1,10 +1,10 @@
-# OpenTeam sendbox — consolidated archive
+# CodeTeam sendbox — consolidated archive
 
 This directory consolidates inter-component letters that were originally
 authored inside each component's own `docs/sendbox/` while the four
 components evolved independently.
 
-When OpenTeam was assembled as the umbrella **System** for these four
+When CodeTeam was assembled as the umbrella **System** for these four
 components, the letters were copied here verbatim (no rewrites) so that
 the cross-component design rationale stays discoverable from a single
 location.
@@ -21,13 +21,13 @@ location.
 | `toUser/from-v02-handoff.zh.md`                         | `cc-sendbox/docs/sendbox/toUser/`             | cc-sendbox |
 | `toUser/glossary.md`                                    | `cc-sendbox/docs/sendbox/toUser/`             | cc-sendbox |
 
-## Status of these letters under OpenTeam
+## Status of these letters under CodeTeam
 
-These letters predate OpenTeam. Now that the four components live under
+These letters predate CodeTeam. Now that the four components live under
 one umbrella, the "embedding playbooks" addressed to HarnessFactory and
 the "language policy" suggestions addressed to RepoMem describe internal
 component contracts rather than cross-repo correspondence. They remain
-authoritative for that internal contract; see the OpenTeam top-level
+authoritative for that internal contract; see the CodeTeam top-level
 `README.md` for how the components interact at the system level.
 
 The components' own `docs/sendbox/` directories under each subtree

@@ -1,6 +1,6 @@
 <div align="center">
 
-# OpenTeam
+# CodeTeam
 
 ### A multi-agent collaboration **System** for long-horizon coding tasks.
 
@@ -13,7 +13,7 @@
 
 </div>
 
-OpenTeam is the umbrella **System** for four independently maintained
+CodeTeam is the umbrella **System** for four independently maintained
 components that, when used together, give a multi-agent setup what it
 needs to survive long-horizon coding work:
 
@@ -26,7 +26,7 @@ needs to survive long-horizon coding work:
 - a **factory** that decides which of the above belong in a target
   repository and embeds them correctly
 
-Each layer is independently useful. Each can be adopted alone. OpenTeam
+Each layer is independently useful. Each can be adopted alone. CodeTeam
 exists to document how they compose and to keep their boundaries honest.
 
 ---
@@ -46,7 +46,7 @@ skill. Long-horizon work cannot:
   target repository — solo platform repos and small-team product repos
   have different needs.
 
-No single skill addresses all four. OpenTeam frames them as four
+No single skill addresses all four. CodeTeam frames them as four
 **layers** of a system: each layer answers a different question, each
 layer has its own canonical artifact, and each layer can be adopted
 without the others.
@@ -119,12 +119,12 @@ use" cases in detail.
 ## Repository layout
 
 ```
-OpenTeam/
+CodeTeam/
 ├── README.md                       # this file
 ├── LICENSE                         # MIT
 ├── docs/
 │   └── sendbox/                    # consolidated inter-component letters
-│       ├── README.md               # provenance + status under OpenTeam
+│       ├── README.md               # provenance + status under CodeTeam
 │       ├── toAllAgents/
 │       ├── toHarnessFactory/
 │       ├── toRepomem/
@@ -137,17 +137,17 @@ OpenTeam/
 
 The four component directories are integrated via **`git subtree`** with
 `--squash` — their contents are full file copies inside this repo, not
-submodule pointers. `git clone https://github.com/JasonJarvan/OpenTeam`
+submodule pointers. `git clone https://github.com/JasonJarvan/CodeTeam`
 yields everything in one shot; no `--recursive` needed.
 
 ### Upstream policy
 
 The four component repositories are the **upstream of record**.
-OpenTeam is an **integration view**: it pulls updates from upstream, it
+CodeTeam is an **integration view**: it pulls updates from upstream, it
 does not normally originate component changes.
 
 Iterate inside each component's own repository as before; then update
-OpenTeam to pick up the change:
+CodeTeam to pick up the change:
 
 ```bash
 git subtree pull --prefix=cc-sendbox      https://github.com/JasonJarvan/cc-sendbox.git      main   --squash
@@ -156,7 +156,7 @@ git subtree pull --prefix=RepoMem         https://github.com/JasonJarvan/RepoMem
 git subtree pull --prefix=HarnessFactory  https://github.com/JasonJarvan/HarnessFactory.git  master --squash
 ```
 
-If, for any reason, a change is made inside OpenTeam to a component
+If, for any reason, a change is made inside CodeTeam to a component
 subtree first, push it back upstream so the two views stay in sync:
 
 ```bash
@@ -165,10 +165,10 @@ git subtree push --prefix=cc-sendbox https://github.com/JasonJarvan/cc-sendbox.g
 
 ---
 
-## Adopting OpenTeam in a target repo
+## Adopting CodeTeam in a target repo
 
-OpenTeam itself is a *reference assembly* of four independently
-adoptable components. You do not adopt OpenTeam as a whole — you adopt
+CodeTeam itself is a *reference assembly* of four independently
+adoptable components. You do not adopt CodeTeam as a whole — you adopt
 the components your target repo needs, in the order their layers imply:
 
 1. Read `HarnessFactory/README.md` and let it tell you which recipe
