@@ -88,6 +88,23 @@ last_reviewed_at: 2026-05-15
 - 与 `Break-Glass For Recipe Invariants` 同形态（默认 deny + 显式破例）
 - 改动文件：`harness-factory/SKILL.md § Add-Only Principle` 整段重写
 
+## v0.4 目标
+
+- 把已被 RepoMem 概念化但物理未落地的"调研层"显式化为顶层 `methods/` 目录
+- 给每个已被 recipe 字面引用的方法（superpowers / repomem / openspec / ecc）补 profile
+- 给在 selection-criteria 中作为"Default inactive"上调选项的方法（bmad / gstack / gsd）补 profile（status = research-only）
+- 把外部 sendbox / dashboard 两个 playbook letter 晋升为候选层一级公民（profile + flat-markdown playbook）
+- 让组装层（harness-factory/）显式 cite 候选层（SKILL.md Step 6.5 + selection-criteria 反链 + recipe-template 加 Method References 字段）
+
+## v0.4 决策与改动
+
+- 顶层新增 `methods/` 与 `harness-factory/`、`docs/`、`output/` 平级
+- 不改 `harness-factory/` 名称（重命名为 `assembly/` 留作 v0.5 候选）
+- 候选层维护 9 个 method 目录：superpowers, repomem, openspec, ecc, bmad, gstack, gsd, sendbox, dashboard
+- 不动 `docs/CN/`（继续 freeze 在 v0.2）
+- 不在本次为 sendbox / dashboard 增加新 recipe（recipe 编写是后续动作；profile 解锁但不要求）
+- 源信 `from-{sendbox,dashboard}-embedding-playbook.md` 不在本任务里 burn，由 sendbox-protocol 的清扫机制处置
+
 ## 未来考虑
 
 - 调研层的周期性 agent 化（v0.4+）
