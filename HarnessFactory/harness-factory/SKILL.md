@@ -31,6 +31,14 @@ The output is a long-term repository baseline and, when needed, a task-specific 
 4. Read [references/question-flow.md](./references/question-flow.md) before asking questions or deciding whether to emit long-term and temporary documents together. Pick the entry mode (Scenario-First vs Layer-First) before asking anything.
 5. Read [references/questionnaire.md](./references/questionnaire.md) to minimize and normalize the actual questions asked.
 6. Read [references/output-shapes.md](./references/output-shapes.md) before generating final documents.
+6.5. Read [../methods/README.md](../methods/README.md) and verify every Method named in
+   the chosen scenario × recipe combination has a `methods/<method>/profile.md`.
+   For any Method that requires embedding mechanics (per its profile's
+   `Embedding Mechanics § Required?` field), read its `embedding-playbook.md`
+   before continuing to step 7. The assembly layer MUST NOT invent facts about
+   a Method that the candidate layer does not state — if a profile is missing
+   a fact you need, surface the gap (do not silently fill it in the recipe or
+   long-term contract).
 7. Pick a recipe from `assets/templates/recipes/` that matches the chosen
    layer combo. If none matches, draft a new recipe before continuing — do not
    bake inter-layer rules directly into the long-term contract.
@@ -132,6 +140,16 @@ unlock via explicit declaration.
   Default is deny — silent skips are forbidden.
 
 ## Resources
+
+### Candidate Layer (read-only)
+
+- `../methods/README.md`: the candidate-layer contract and per-method profile schema
+- `../methods/<method>/profile.md`: per-method profile (one per supported Method)
+- `../methods/<method>/embedding-playbook.md`: embedding playbook for Methods that need one
+- `../methods/_comparison/lifecycle-workflow-comparison.zh-CN.md`: cross-method analysis
+
+The assembly layer reads candidate-layer files; it MUST NOT write to them. See
+`methods/README.md § Read-only contract with the assembly layer` for the full rule.
 
 ### assets/templates/
 
