@@ -219,6 +219,8 @@ RepoMem 使用**一种主语言**作为仓库记忆的事实语言。
 将其放在 `multi-lang/<language>/` 下。
 不要把它当作主事实来源。
 
+另外提供一个可选的**按受众分层 refinement**:按 HITL(用户语言)与非 HITL(英文 / 模型语言)拆分文档,并使用 `.{lang}.md` 文件名后缀约定。默认关闭以保持向后兼容。详见 [`repo-mem/references/language-policy.md`](./repo-mem/references/language-policy.md) § Audience-Based Language Choice。
+
 ## RepoMem 适合放在哪一层
 
 RepoMem 最适合作为其他工作流周围的一层“仓库记忆层”。

@@ -219,6 +219,8 @@ Secondary languages are mirrors only.
 Store them under `multi-lang/<language>/`.
 Do not use them as the primary fact source.
 
+An optional **audience-based refinement** is also available: split docs by HITL (user language) vs non-HITL (English / model language), with a `.{lang}.md` filename suffix convention. Disabled by default for backwards compatibility. See [`repo-mem/references/language-policy.md`](./repo-mem/references/language-policy.md) § Audience-Based Language Choice.
+
 ## Where RepoMem Fits
 
 RepoMem is best used as a memory layer around other workflows.

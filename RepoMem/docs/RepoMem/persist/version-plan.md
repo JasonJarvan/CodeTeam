@@ -84,6 +84,10 @@
 - 细化 init/apply/conflict 过程中的差异展示和审阅体验
 - 评估是否需要把 `init` 的分析与 apply 拆成更显式的子命令界面
 
+## Recent Accepted Refinements
+
+- **2026-05-26**: 接受 cc-sendbox 提案的 audience-based language split,作为 `references/language-policy.md` 的可选 additive refinement(`audience_split` 默认 disabled,向后兼容)。同时同步更新 README.md / README_CN.md 的 Language Policy 段。来源信件:`docs/sendbox/toRepomem/from-sendbox-language-policy-suggestion.md`(已 burn)。
+
 ## Backlog Candidates
 
 - 是否需要任务级总览文件
