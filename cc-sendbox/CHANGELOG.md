@@ -4,6 +4,23 @@ All notable changes to `sendbox-protocol` (the skill in `skills/sendbox-protocol
 
 **Versioning scope**: this changelog tracks the skill body only. Repository-level changes (docs reshuffles, RepoMem captures, sendbox dogfood, CI bits) are visible via `git log` and not duplicated here.
 
+## [0.3.0] — 2026-06-18
+
+### Added — active verbs (handoff / inherit)
+
+The handoff/inherit practice gains two callable, framework-agnostic verbs, documented in a new `verbs.md` referenced from `SKILL.md`:
+
+- **handoff (write)**: scaffolds a compliant handoff letter from the current session — detects Mode A/B, fills frontmatter, injects the host-configured `read_first` set, lays the mode skeleton, drafts substantive sections from session context (non-derivable parts left as `<FILL>`), adds a suggested-skills block (skills to invoke), and fills the env block from git.
+- **inherit (read)**: actively loads a handoff letter's `read_first` + must-read set into context, applies a hard/soft dependency split (missing hard fails loudly; soft degrades), renders Day-1 as a checklist, and stays read-only (mutating steps proposed, never auto-run).
+
+Verbs are framework-agnostic: all host-specific data (mandatory `read_first` paths, suggested skills, Mode-B Day-1 template) is read from a host config (`docs/sendbox/_handoff-config.yaml`), never hardcoded in the skill.
+
+Also reconciled the `read_first` documentation into the SKILL.md frontmatter spec (previously absent from this repo copy) and widened the skill description to fire on handoff/inherit natural-language intents.
+
+### Why minor bump
+
+Additive new capability (the verbs) layered over the existing handoff letter type; backwards-compatible — existing letters and the spec remain valid. Per SemVer, additive semantic = MINOR.
+
 ## [0.2.1] — 2026-05-16
 
 ### Added — cleanup checkpoints

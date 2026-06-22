@@ -1,7 +1,7 @@
 ---
 name: sendbox-protocol
-version: 0.2.1
-description: Use when multiple agents/sessions need asynchronous file-based communication across worktrees, branches, or sessions — defines directory layout, letter naming, frontmatter spec, lifecycle (burn/archive/persist), and the canonical letter types (handoff, plan-ready, greenlight, blocker, decisions, milestone-done, broadcast). Apply when designing or running multi-agent orchestration (one orchestrator + multiple implementers / subagents) and chat-synchronous coordination is insufficient.
+version: 0.3.0
+description: Use when multiple agents/sessions need asynchronous file-based communication across worktrees, branches, or sessions — defines directory layout, letter naming, frontmatter spec, lifecycle (burn/archive/persist), and the canonical letter types (handoff, plan-ready, greenlight, blocker, decisions, milestone-done, broadcast). Apply when designing or running multi-agent orchestration (one orchestrator + multiple implementers / subagents) and chat-synchronous coordination is insufficient. Also use when you need to write or scaffold a handoff to a role (hand off to an implementer, hand off to an orchestrator), or when a session needs to inherit / pick up a handoff letter — the skill exposes callable handoff (write) and inherit (read) verbs backed by the protocol spec.
 ---
 
 # Sendbox Protocol
@@ -60,7 +60,7 @@ docs/sendbox/                       # repo-root convention
 
 ## YAML frontmatter
 
-**Single recipient** — frontmatter optional. Default lifecycle = burn when the recipient's lifecycle ends. A short `> from: / recipient: / purpose: / lifecycle:` quote block at the top is sufficient.
+**Single recipient** — frontmatter optional. Default lifecycle = burn when the recipient's lifecycle ends. A short `> from: / recipient: / purpose: / lifecycle:` quote block at the top is sufficient. **Handoff letters** (a session's entry brief) additionally carry a `> read first:` line — the workflow / domain docs the recipient MUST read before acting, listed by **absolute path**. Absolute is load-bearing: a recipient spawned in an isolated worktree has no git-excluded `docs/` overlay from the spawning repo, so relative paths dangle there. Omitting this on an Orche/Impler handoff is how a fresh session silently bypasses the pipeline.
 
 **Multi recipient** — frontmatter required:
 
@@ -73,11 +73,15 @@ recipients:
 on_lifecycle_end: burn | archive | persist
 created: <YYYY-MM-DD>
 created_in: <human-readable origin tag, e.g. "orche-2026-05-14" or "worktree:.worktrees/api-v1">
+read_first:                 # handoff letters only — absolute paths the recipient reads before acting
+  - <abs path to the repo's workflow / recipe doc>
+  - <abs path to the domain glossary / context map>
 ---
 ```
 
 - `lifecycle` should be a concrete *condition* a future reader can evaluate without context (a date, a milestone name, a "superseded by" pointer). Avoid open-ended "until done".
 - `created_in` is a human label, not a UUID — readable enough that an audit can trace which session produced the letter.
+- `read_first` (handoff letters to task-executing roles only) — absolute paths to the workflow / domain docs the recipient must read before its first action. Absolute, not relative: a worktree-isolated recipient lacks the spawning repo's git-excluded `docs/` overlay. This field is the wiring that routes a fresh session into the pipeline; omitting it is how a session silently skips the recipe.
 - For broadcasts, declare a supersession rule explicitly: either `until <event>` or `until superseded by <toAllActiveSessions/from-orche-...md>`.
 
 - `burn` = `git rm` (default).
@@ -284,7 +288,7 @@ Framework-specific embedding mechanics (how to actually slot sendbox into a give
 ## Quick start (drop into a fresh repo)
 
 1. Pick the **main agent's project root** — the one repository whose `docs/sendbox/` will be canonical. Run `mkdir -p docs/sendbox/toOrchestrator docs/sendbox/toUser docs/sendbox/toAllActiveSessions` there, and only there. Subagents in side cwds will reach this path by relative traversal or absolute path; they do NOT create their own sendbox.
-2. When spawning a session, write `docs/sendbox/to<Role>/handoff.md` with status snapshot + must-reads + day-1 actions. No frontmatter if single recipient.
+2. When spawning a session, write `docs/sendbox/to<Role>/handoff.md` with status snapshot + a `read first:` list (absolute paths to the workflow + domain docs the recipient must read before acting) + day-1 actions. No frontmatter if single recipient. The `read first:` field is mandatory on handoffs to task-executing roles — it is the wiring that routes a fresh / worktree session into the pipeline.
 3. When the session needs to reply: `docs/sendbox/to<UpstreamRole>/from-<yourname>-<topic>.md`. Use the type catalog to pick a name.
 4. When you can't proceed: write a `from-<you>-blocker-<topic>.md` with 2-3 options, stop, wait.
 5. When lifecycle ends: `git rm` the letter. Commit message: `sendbox: burn <letter> (lifecycle ended)`.
@@ -302,6 +306,15 @@ Framework-specific embedding mechanics (how to actually slot sendbox into a give
 - "Quick clarification" letters that don't ask, decide, or escalate — just narrate.
 
 All of these mean: stop, delete the letter, use the right channel.
+
+## Verbs
+
+The skill exposes two callable procedures defined in `verbs.md` (same directory):
+
+- **handoff** (write) — scaffold a compliant handoff letter from the current session's state: auto-detect Mode A/B, write the file directly, inject `read_first` from host config, draft substantive sections from session context, and leave non-derivable parts as `<FILL>`.
+- **inherit** (read) — actively consume a handoff letter: locate the letter, parse frontmatter, load every `read_first` and must-read path into context (hard failures loud, soft failures graceful), and render an executable Day-1 checklist without auto-running mutating steps.
+
+Both verbs are config-driven and framework-agnostic. Host-specific values (`read_first` paths, suggested skills, Day-1 template) are read from a config file the host repo provides (default `docs/sendbox/_handoff-config.yaml`); if absent the verbs run with protocol-generic output and a warning. See `verbs.md` for the full procedures.
 
 ## See also
 
