@@ -4,6 +4,16 @@ All notable changes to `sendbox-protocol` (the skill in `skills/sendbox-protocol
 
 **Versioning scope**: this changelog tracks the skill body only. Repository-level changes (docs reshuffles, RepoMem captures, sendbox dogfood, CI bits) are visible via `git log` and not duplicated here.
 
+## [0.4.0] — 2026-06-22
+
+### Added — optional two-layer directory grouping
+
+`§ Directory layout` now documents an OPTIONAL audience grouping for sendboxes that outgrow a flat recipient set: `toHuman/to<role>/` (user + human teams) and `toAgent/to<role>/` (agent sessions, orchestrators, skills, frameworks, programs). Flat `to<Role>/` stays the default and remains valid; the grouping changes no other rule (naming, frontmatter, lifecycle identical). Codifies a host convention (EverClaw's) as a portable, opt-in scaling pattern.
+
+### Why minor bump
+
+Additive, backwards-compatible — flat layouts remain conformant; two-layer is opt-in. Per SemVer, additive = MINOR.
+
 ## [0.3.0] — 2026-06-18
 
 ### Added — active verbs (handoff / inherit)
@@ -118,8 +128,8 @@ Verified: `grep -E 'HarnessStack|OpenSpec|ECC|RepoMem|repomem|17-step|auto-memor
 ### Added — secondary surface (framework-targeted, ships alongside skill)
 
 These are not part of the skill body but ship with cc-sendbox:
-- `docs/sendbox/toAllAgents/from-sendbox-self-desc.md` — generic self-description for agent readers
-- `docs/sendbox/toHarnessFactory/from-sendbox-embedding-playbook.md` — HS-specific embedding playbook with decision tree, embed checklist, pipeline↔letter trigger map, copy-paste invariant template
+- `docs/sendbox/toAgent/toAllAgents/from-sendbox-self-desc.md` — generic self-description for agent readers
+- `docs/sendbox/toAgent/toHarnessFactory/from-sendbox-embedding-playbook.md` — HS-specific embedding playbook with decision tree, embed checklist, pipeline↔letter trigger map, copy-paste invariant template
 - `docs/RepoMem/persist/architecture/sendbox-in-harnessstack.md` — durable architectural decision (positioning as cross-method invariant + customer-routing principle)
 - `docs/HarnessStack/longterm.md § Cross-Method Invariants` — one-line invariant in cc-sendbox's own HS contract
 

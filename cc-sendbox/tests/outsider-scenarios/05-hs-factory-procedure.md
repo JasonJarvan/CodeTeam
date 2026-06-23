@@ -2,11 +2,11 @@
 
 Tests whether a HS-factory reader correctly applies the playbook §3 embedding checklist after deciding YES.
 
-Covers: `docs/sendbox/toHarnessFactory/from-sendbox-embedding-playbook.md` §3 + §4.
+Covers: `docs/sendbox/toAgent/toHarnessFactory/from-sendbox-embedding-playbook.md` §3 + §4.
 
 Expected pass: **2 / 2**.
 
-**Pre-read for subagent**: `docs/sendbox/toAllAgents/from-sendbox-self-desc.md` + `docs/sendbox/toHarnessFactory/from-sendbox-embedding-playbook.md`.
+**Pre-read for subagent**: `docs/sendbox/toAgent/toAllAgents/from-sendbox-self-desc.md` + `docs/sendbox/toAgent/toHarnessFactory/from-sendbox-embedding-playbook.md`.
 
 ## Prompt
 

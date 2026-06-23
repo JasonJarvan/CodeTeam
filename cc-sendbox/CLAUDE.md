@@ -115,10 +115,10 @@ When `userLanguage ≠ English`, a user-facing doc MUST carry the suffix. Exampl
 | `docs/RepoMem/persist/architecture/*` | model-facing | English | conforming |
 | `docs/RepoMem/persist/memory/*.zh.md` | model-facing | 中文 | **non-conforming** (scheduled rewrite) |
 | `docs/RepoMem/temp/*` | model-facing | English (mixed in places) | mostly conforming |
-| `docs/sendbox/toUser/glossary.md` | user-facing HITL | English | **non-conforming** (should be 中文; scheduled rewrite as `glossary.zh.md`) |
-| `docs/sendbox/toAllAgents/*` | model-facing (agent readers) | English | conforming |
-| `docs/sendbox/toHarnessFactory/*` | model-facing | English | conforming |
-| `docs/sendbox/toRepomem/*` | model-facing (sister-skill maintainer) | English | conforming (when added) |
+| `docs/sendbox/toHuman/toUser/glossary.md` | user-facing HITL | English | **non-conforming** (should be 中文; scheduled rewrite as `glossary.zh.md`) |
+| `docs/sendbox/toAgent/toAllAgents/*` | model-facing (agent readers) | English | conforming |
+| `docs/sendbox/toAgent/toHarnessFactory/*` | model-facing | English | conforming |
+| `docs/sendbox/toAgent/toRepomem/*` | model-facing (sister-skill maintainer) | English | conforming (when added) |
 | `tests/*` | model-facing | English | conforming |
 
 ### Audit + migration
@@ -130,7 +130,7 @@ When `userLanguage ≠ English`, a user-facing doc MUST carry the suffix. Exampl
 
 ### Relationship to repo-mem language-policy
 
-`~/.claude/skills/repo-mem/references/language-policy.md` exists as a parallel governance mechanism for RepoMem-managed projects. cc-sendbox's policy here is independent — both policies coexist (per user decision 2026-05-16). A sister-skill letter is filed at `docs/sendbox/toRepomem/from-sendbox-language-policy-suggestion.md` suggesting repo-mem adopt the same HITL/non-HITL split.
+`~/.claude/skills/repo-mem/references/language-policy.md` exists as a parallel governance mechanism for RepoMem-managed projects. cc-sendbox's policy here is independent — both policies coexist (per user decision 2026-05-16). A sister-skill letter is filed at `docs/sendbox/toAgent/toRepomem/from-sendbox-language-policy-suggestion.md` suggesting repo-mem adopt the same HITL/non-HITL split.
 
 ## Directory layout (current + on demand)
 

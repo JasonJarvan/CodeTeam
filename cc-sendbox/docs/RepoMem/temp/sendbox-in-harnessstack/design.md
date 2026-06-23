@@ -37,8 +37,8 @@ User-stated principle: route documentation by *who reads it*, not by topic.
 | Customer | Path | Role |
 |---|---|---|
 | **User** (human end-user) | `README.md` | install + usage entry |
-| **AllAgents** (any agent reader, framework-agnostic) | `docs/sendbox/toAllAgents/from-sendbox-self-desc.md` | what it is, when to use, hard rules, pointers |
-| **HarnessFactory** (HS factory agent embedding sendbox into a new HS repo) | `docs/sendbox/toHarnessFactory/from-sendbox-embedding-playbook.md` | decision tree + embed checklist + invariant template |
+| **AllAgents** (any agent reader, framework-agnostic) | `docs/sendbox/toAgent/toAllAgents/from-sendbox-self-desc.md` | what it is, when to use, hard rules, pointers |
+| **HarnessFactory** (HS factory agent embedding sendbox into a new HS repo) | `docs/sendbox/toAgent/toHarnessFactory/from-sendbox-embedding-playbook.md` | decision tree + embed checklist + invariant template |
 | **Skill caller** (any framework) | `skills/sendbox-protocol/SKILL.md` | protocol body, **framework-agnostic** — no HS-specific terms |
 | **Own HS contract** (cc-sendbox self) | `docs/HarnessStack/longterm.md` § Cross-Method Invariants | one-line pointer to skill + playbook, no inlined body |
 | **Durable architecture** (cross-task, promoted) | `docs/RepoMem/persist/architecture/sendbox-in-harnessstack.md` | after HITL merge from this temp doc |
@@ -84,7 +84,7 @@ Goal: SKILL.md is portable across BMAD / gstack / HS / etc. No framework name le
 
 Append exactly one bullet:
 
-> **Multi-session work uses sendbox-protocol.** When a task involves multiple sessions, dispatched subagents, or cross-worktree coordination, the `sendbox-protocol` skill (see `skills/sendbox-protocol/SKILL.md`) is the canonical asynchronous channel; the main agent's `docs/sendbox/` is the single source of truth and subagents in side cwds write to it by relative or absolute path. See `docs/sendbox/toHarnessFactory/from-sendbox-embedding-playbook.md` for embedding mechanics in derived HS repos.
+> **Multi-session work uses sendbox-protocol.** When a task involves multiple sessions, dispatched subagents, or cross-worktree coordination, the `sendbox-protocol` skill (see `skills/sendbox-protocol/SKILL.md`) is the canonical asynchronous channel; the main agent's `docs/sendbox/` is the single source of truth and subagents in side cwds write to it by relative or absolute path. See `docs/sendbox/toAgent/toHarnessFactory/from-sendbox-embedding-playbook.md` for embedding mechanics in derived HS repos.
 
 ## D. Migration of current `toAll/from-sendbox-self-desc.md`
 

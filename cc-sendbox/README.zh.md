@@ -54,7 +54,7 @@ ln -s "$(pwd)/skills/sendbox-protocol" ~/.claude/skills/sendbox-protocol
 
 ## 安装到你自己的项目
 
-如果你想把 sendbox 协议嵌入到你的项目（HarnessStack 仓 / 任意 Claude Code 项目），步骤详见 [`docs/sendbox/toHarnessFactory/from-sendbox-embedding-playbook.md`](docs/sendbox/toHarnessFactory/from-sendbox-embedding-playbook.md)（英文嵌入剧本，给"工厂 agent"或仓库维护者看）。
+如果你想把 sendbox 协议嵌入到你的项目（HarnessStack 仓 / 任意 Claude Code 项目），步骤详见 [`docs/sendbox/toAgent/toHarnessFactory/from-sendbox-embedding-playbook.md`](docs/sendbox/toAgent/toHarnessFactory/from-sendbox-embedding-playbook.md)（英文嵌入剧本，给"工厂 agent"或仓库维护者看）。
 
 剧本含：
 - 决策树（你的仓什么情况下需要 sendbox）
@@ -81,10 +81,12 @@ cc-sendbox/
 │   │   ├── architecture/                  # 架构决策（含 sendbox-in-harnessstack）
 │   │   └── memory/                        # 跨任务 lesson（部分中文 .zh.md）
 │   └── sendbox/                           # cc-sendbox 自己的 sendbox（dogfood）
-│       ├── toAllAgents/                   # 给所有 agent 读者的信
-│       ├── toHarnessFactory/              # 给 HS 工厂 agent 的嵌入剧本
-│       ├── toRepomem/                     # 给 repo-mem 姊妹 skill 的建议信
-│       └── toUser/                        # 给用户的信（含术语表）
+│       ├── toAgent/
+│       │   ├── toAllAgents/               # 给所有 agent 读者的信
+│       │   ├── toHarnessFactory/          # 给 HS 工厂 agent 的嵌入剧本
+│       │   └── toRepomem/                 # 给 repo-mem 姊妹 skill 的建议信
+│       └── toHuman/
+│           └── toUser/                    # 给用户的信（含术语表）
 └── tests/
     └── outsider-scenarios/                # 27 个 fixture 场景（任何 SKILL 改动前手动跑一遍防回归）
 ```
@@ -100,7 +102,7 @@ cc-sendbox/
 
 ## 词汇表
 
-如果你在用本仓时遇到不懂的术语（A-12 / main agent / canonical sendbox / fan-out / lifecycle / handoff / blocker 等），看 [`docs/sendbox/toUser/glossary.md`](docs/sendbox/toUser/glossary.md)（目前英文，未来会出中文版）。
+如果你在用本仓时遇到不懂的术语（A-12 / main agent / canonical sendbox / fan-out / lifecycle / handoff / blocker 等），看 [`docs/sendbox/toHuman/toUser/glossary.md`](docs/sendbox/toHuman/toUser/glossary.md)（目前英文，未来会出中文版）。
 
 ## 出处
 

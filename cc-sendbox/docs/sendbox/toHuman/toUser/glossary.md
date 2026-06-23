@@ -65,7 +65,7 @@ A user-facing reference. Skim once; come back when you encounter a term in a let
 | **HarnessStack** | A modular development workflow framework. cc-sendbox itself runs on HarnessStack at `superpowers-repomem` recipe. | `docs/HarnessStack/longterm.md` |
 | **recipe** | A named bundle of HarnessStack methods (e.g. `superpowers-repomem` = Superpowers + RepoMem; `openspec-superpowers-repomem-ecc` = +OpenSpec +ECC). | `docs/HarnessStack/longterm.md` |
 | **cross-method invariant** | A rule that holds across multiple HarnessStack methods, declared once in the long-term contract. sendbox's positioning in HS is a cross-method invariant. | `docs/RepoMem/persist/architecture/sendbox-in-harnessstack.md` |
-| **HarnessFactory** | An agent (or operator) that produces or upgrades a HarnessStack-managed repository. The audience of the embedding playbook. | `docs/sendbox/toHarnessFactory/from-sendbox-embedding-playbook.md` |
+| **HarnessFactory** | An agent (or operator) that produces or upgrades a HarnessStack-managed repository. The audience of the embedding playbook. | `docs/sendbox/toAgent/toHarnessFactory/from-sendbox-embedding-playbook.md` |
 | **RepoMem** | The repository-memory method: structured architecture / memory / version-plan persistence with HITL merge. | `~/.claude/skills/repo-mem/SKILL.md` |
 | **HITL merge** | Human-in-the-loop review before promoting transient temp knowledge to persistent architecture / memory. | `~/.claude/skills/repo-mem/references/merge-rules.md` |
 | **temp doc** | Task-scoped working memory under `docs/RepoMem/temp/<slug>/`. Lives until promoted (HITL merge) or pruned. | `~/.claude/skills/repo-mem/SKILL.md` |

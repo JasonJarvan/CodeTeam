@@ -5,7 +5,7 @@ last_reviewed_at: 2026-05-16
 
 # sendbox 在 HarnessStack 体系中的定位
 
-Canonical for "where sendbox sits structurally within HarnessStack". Cited from `docs/sendbox/toAllAgents/from-sendbox-self-desc.md` §5; embedding mechanics live separately in `docs/sendbox/toHarnessFactory/from-sendbox-embedding-playbook.md`. Promoted from `docs/RepoMem/temp/sendbox-in-harnessstack/design.md` §A + §B on 2026-05-16 via HITL merge.
+Canonical for "where sendbox sits structurally within HarnessStack". Cited from `docs/sendbox/toAgent/toAllAgents/from-sendbox-self-desc.md` §5; embedding mechanics live separately in `docs/sendbox/toAgent/toHarnessFactory/from-sendbox-embedding-playbook.md`. Promoted from `docs/RepoMem/temp/sendbox-in-harnessstack/design.md` §A + §B on 2026-05-16 via HITL merge.
 
 ## 1. Positioning — cross-method invariant
 
@@ -24,7 +24,7 @@ Trigger condition: a task crosses session boundaries (subagent dispatched / mult
 
 ### How it overlays the pipeline
 
-sendbox triggers map onto existing pipeline steps without inserting new ones — see `docs/sendbox/toHarnessFactory/from-sendbox-embedding-playbook.md` §3.3 for the trigger reference table (brainstorming / executing-plans / verification / requesting-code-review / finishing-a-development-branch / RepoMem.merge / any-time-broadcast).
+sendbox triggers map onto existing pipeline steps without inserting new ones — see `docs/sendbox/toAgent/toHarnessFactory/from-sendbox-embedding-playbook.md` §3.3 for the trigger reference table (brainstorming / executing-plans / verification / requesting-code-review / finishing-a-development-branch / RepoMem.merge / any-time-broadcast).
 
 ## 2. Documentation layering — customer-routing principle
 
@@ -33,8 +33,8 @@ cc-sendbox documents are routed by **who reads them**, not by topic. This is a d
 | Customer | Path | Role |
 |---|---|---|
 | User (human end-user) | `README.md` | install + usage entry |
-| AllAgents (any agent reader, framework-agnostic) | `docs/sendbox/toAllAgents/from-sendbox-self-desc.md` | what it is, when to use, hard rules, pointers |
-| HarnessFactory (HS factory agent embedding sendbox into a new HS repo) | `docs/sendbox/toHarnessFactory/from-sendbox-embedding-playbook.md` | decision tree + embed checklist + invariant template |
+| AllAgents (any agent reader, framework-agnostic) | `docs/sendbox/toAgent/toAllAgents/from-sendbox-self-desc.md` | what it is, when to use, hard rules, pointers |
+| HarnessFactory (HS factory agent embedding sendbox into a new HS repo) | `docs/sendbox/toAgent/toHarnessFactory/from-sendbox-embedding-playbook.md` | decision tree + embed checklist + invariant template |
 | Skill caller (any framework, may not be HS) | `skills/sendbox-protocol/SKILL.md` | protocol body — **must stay framework-agnostic** |
 | Own HS contract (cc-sendbox self) | `docs/HarnessStack/longterm.md` § Cross-Method Invariants | one-line pointer to skill + playbook, never inline skill body |
 | Durable architecture (this file) | `docs/RepoMem/persist/architecture/sendbox-in-harnessstack.md` | cross-task structural decisions |
@@ -77,5 +77,5 @@ Revisit this architecture if any of:
 - Pre-promotion artifacts already live (not promoted, they are production docs not knowledge):
   - `skills/sendbox-protocol/SKILL.md` §Interop framework-agnostic (commit cc22e11)
   - `docs/HarnessStack/longterm.md` § Cross-Method Invariants invariant added (commit cc22e11)
-  - `docs/sendbox/toAllAgents/from-sendbox-self-desc.md` (commit 34e8dc9)
-  - `docs/sendbox/toHarnessFactory/from-sendbox-embedding-playbook.md` (commit 34e8dc9)
+  - `docs/sendbox/toAgent/toAllAgents/from-sendbox-self-desc.md` (commit 34e8dc9)
+  - `docs/sendbox/toAgent/toHarnessFactory/from-sendbox-embedding-playbook.md` (commit 34e8dc9)

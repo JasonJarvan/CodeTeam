@@ -1,6 +1,6 @@
 ---
 name: sendbox-protocol
-version: 0.3.0
+version: 0.4.0
 description: Use when multiple agents/sessions need asynchronous file-based communication across worktrees, branches, or sessions — defines directory layout, letter naming, frontmatter spec, lifecycle (burn/archive/persist), and the canonical letter types (handoff, plan-ready, greenlight, blocker, decisions, milestone-done, broadcast). Apply when designing or running multi-agent orchestration (one orchestrator + multiple implementers / subagents) and chat-synchronous coordination is insufficient. Also use when you need to write or scaffold a handoff to a role (hand off to an implementer, hand off to an orchestrator), or when a session needs to inherit / pick up a handoff letter — the skill exposes callable handoff (write) and inherit (read) verbs backed by the protocol spec.
 ---
 
@@ -57,6 +57,8 @@ docs/sendbox/                       # repo-root convention
 | Bundle reply | `from-<sender>-<recipient>-<theme>.md` | `from-orche-impl-a-decisions.md` |
 
 **Short role aliases** (e.g. `toBe`, `toFe`, `toOrche`) are acceptable in small projects, but stay consistent within a repo. Decisions/relays always use the `-decisions.md` suffix even for a single decision — it stays bundle-ready and recipients learn one shape.
+
+**Optional two-layer grouping (scaling).** Flat `to<Role>/` is the default and is correct for small sendboxes. When recipients grow past a handful, a repo MAY group them one level deeper by audience: `toHuman/to<role>/` for humans and human teams (the user, CI / test / algo teams) and `toAgent/to<role>/` for agent sessions, orchestrators, skills, frameworks, and programs. The grouping is purely organizational — naming, frontmatter, lifecycle, and every other rule are unchanged; a recipient is still addressed by its `to<role>/` directory, now one level down. Pick flat or two-layer per repo and stay consistent. (EverClaw uses the two-layer layout.)
 
 ## YAML frontmatter
 

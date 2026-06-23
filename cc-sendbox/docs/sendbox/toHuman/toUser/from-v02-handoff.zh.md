@@ -35,7 +35,7 @@ CHANGELOG.md 是详细变更记录入口。Tags 都在 GitHub 上：<https://git
 
 ### B. 词汇表中文化 — `glossary.zh.md`
 
-- 当前：`docs/sendbox/toUser/glossary.md` 是英文写的
+- 当前：`docs/sendbox/toHuman/toUser/glossary.md` 是英文写的
 - 政策：toUser = HITL = userLanguage = 中文，应该是 `glossary.zh.md`
 - 状态：在 CLAUDE.md § Language policy 标 "scheduled rewrite"
 - 行动选择：
@@ -46,7 +46,7 @@ CHANGELOG.md 是详细变更记录入口。Tags 都在 GitHub 上：<https://git
 
 - 本机已 apply：`~/.claude/skills/repo-mem/references/language-policy.md` 加了 "Audience-Based Language Choice" 节
 - 风险：本机改动；如果重装 / 升级 repo-mem skill 可能被覆盖
-- 已备 PR 种子：`docs/sendbox/toRepomem/from-sendbox-language-policy-suggestion.md`
+- 已备 PR 种子：`docs/sendbox/toAgent/toRepomem/from-sendbox-language-policy-suggestion.md`
 - 行动选择：
   - 找到 repo-mem 上游仓地址（如果有 GitHub 仓），手动 PR
   - 或不 PR，本机用着

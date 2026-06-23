@@ -38,7 +38,7 @@ For each fixture file in `tests/outsider-scenarios/`:
 | `05-hs-factory-procedure.md` | HS-factory embedding mechanics | 2 | Playbook §3 checklist (out-of-skill) |
 | `06-handoff-modes.md` | child vs inheritance vs peer | 4 | Handoff modes section + Mode detection rule (added in 0.2.0) |
 
-Fixtures `01`–`03` and `06` test the skill itself; `04`–`05` test `docs/sendbox/toHarnessFactory/from-sendbox-embedding-playbook.md`. Run `04`–`05` whenever the playbook changes (separate trigger from skill changes).
+Fixtures `01`–`03` and `06` test the skill itself; `04`–`05` test `docs/sendbox/toAgent/toHarnessFactory/from-sendbox-embedding-playbook.md`. Run `04`–`05` whenever the playbook changes (separate trigger from skill changes).
 
 ## Provenance
 

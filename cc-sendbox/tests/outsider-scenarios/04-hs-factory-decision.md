@@ -2,11 +2,11 @@
 
 Tests whether a HS-factory reader correctly applies the playbook §2 decision tree (recipe × scale × work-mode) across 4 concrete scenarios.
 
-Covers: `docs/sendbox/toHarnessFactory/from-sendbox-embedding-playbook.md` §2 decision tree.
+Covers: `docs/sendbox/toAgent/toHarnessFactory/from-sendbox-embedding-playbook.md` §2 decision tree.
 
 Expected pass: **4 / 4**.
 
-**Pre-read for subagent**: `docs/sendbox/toAllAgents/from-sendbox-self-desc.md` + `docs/sendbox/toHarnessFactory/from-sendbox-embedding-playbook.md`. Subagent should NOT need to read SKILL.md to decide these (decisions are at the playbook layer).
+**Pre-read for subagent**: `docs/sendbox/toAgent/toAllAgents/from-sendbox-self-desc.md` + `docs/sendbox/toAgent/toHarnessFactory/from-sendbox-embedding-playbook.md`. Subagent should NOT need to read SKILL.md to decide these (decisions are at the playbook layer).
 
 ## Prompt
 
