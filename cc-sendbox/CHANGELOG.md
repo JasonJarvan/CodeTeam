@@ -4,6 +4,16 @@ All notable changes to `sendbox-protocol` (the skill in `skills/sendbox-protocol
 
 **Versioning scope**: this changelog tracks the skill body only. Repository-level changes (docs reshuffles, RepoMem captures, sendbox dogfood, CI bits) are visible via `git log` and not duplicated here.
 
+## [0.5.0] — 2026-06-23
+
+### Added — archive-by-default for durable-value letters
+
+`§ Cleanup checkpoints` now instructs: before a `burn` at either checkpoint, judge the letter's lasting reference value, and default to **archive** (move to `to<receiver>/archive/`) for content that outlives its task — architecture / design research, test plans or smoke-test manuals, durable decision records, reusable playbooks. Burn stays for transient coordination chatter. "When unsure, archive" (cheap + reversible; burn is not). Distinguished from `persist` (promote-then-remove).
+
+### Why minor bump
+
+Additive lifecycle-selection guidance; no new mechanism, no breaking change. Existing burn/archive/persist semantics unchanged. Per SemVer, additive = MINOR.
+
 ## [0.4.0] — 2026-06-22
 
 ### Added — optional two-layer directory grouping

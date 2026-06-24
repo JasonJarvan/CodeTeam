@@ -1,6 +1,6 @@
 ---
 name: sendbox-protocol
-version: 0.4.0
+version: 0.5.0
 description: Use when multiple agents/sessions need asynchronous file-based communication across worktrees, branches, or sessions — defines directory layout, letter naming, frontmatter spec, lifecycle (burn/archive/persist), and the canonical letter types (handoff, plan-ready, greenlight, blocker, decisions, milestone-done, broadcast). Apply when designing or running multi-agent orchestration (one orchestrator + multiple implementers / subagents) and chat-synchronous coordination is insufficient. Also use when you need to write or scaffold a handoff to a role (hand off to an implementer, hand off to an orchestrator), or when a session needs to inherit / pick up a handoff letter — the skill exposes callable handoff (write) and inherit (read) verbs backed by the protocol spec.
 ---
 
@@ -87,7 +87,7 @@ read_first:                 # handoff letters only — absolute paths the recipi
 - For broadcasts, declare a supersession rule explicitly: either `until <event>` or `until superseded by <toAllActiveSessions/from-orche-...md>`.
 
 - `burn` = `git rm` (default).
-- `archive` = move to `docs/sendbox/archive/` for historical reference.
+- `archive` = move to the recipient's `to<receiver>/archive/` for historical reference (top-level `docs/sendbox/archive/` only for broadcasts / receiver-less letters).
 - `persist` = promote content into durable docs (architecture, memory, spec) via human-in-the-loop review, then burn the letter.
 
 A letter with neither frontmatter nor a single clear recipient is **malformed**.
@@ -251,7 +251,7 @@ Before terminating, scan `docs/sendbox/` for (a) letters you authored and (b) le
 | Disposition | Action |
 |---|---|
 | `burn` | `git rm <letter>` and commit (`sendbox: burn <letter> (lifecycle ended)`) |
-| `archive` | move to `docs/sendbox/archive/<letter>` |
+| `archive` | move to the recipient's `to<receiver>/archive/<letter>` (top-level `docs/sendbox/archive/` only for broadcasts / receiver-less letters) |
 | `persist` | confirm the content has been promoted to durable docs, then burn the letter (persist means *promoted-then-burned*, not *kept forever*) |
 
 ### Checkpoint 2 — at task convergence
@@ -271,6 +271,10 @@ Burning matched pairs together prevents "half-completed conversations" clutterin
 ### Why active sweeping (vs reactive audit)
 
 Anti-pattern #5 (rotting unburned letters) describes the *symptom*. These checkpoints are the *prevention*. An adopter who runs cleanup proactively at the two checkpoints above never accumulates rot; reactive audit becomes a backstop, not a routine.
+
+### Archive-by-default for durable-value letters
+
+Before executing a `burn` at either checkpoint, judge the letter's lasting reference value. If the content outlives its task — architecture / design research, a test plan or smoke-test manual, a durable decision record, a reusable playbook — default to **archive** instead of burn: move it to the recipient's `to<receiver>/archive/` (preserving where it was addressed). The top-level `docs/sendbox/archive/` is only for broadcasts / receiver-less letters. Burn is for transient coordination chatter — acks, resolved blockers, greenlights, status pings — that the durable docs and commit history already capture. When unsure, archive: it is cheap and reversible; a burn is not. (This differs from `persist`, which promotes content into a durable doc and *then* removes the letter; archive keeps the letter in place for reference, unpromoted.)
 
 ### What stays (persist disposition exemption)
 
